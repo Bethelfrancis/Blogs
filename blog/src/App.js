@@ -1,11 +1,11 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './component/Navbar';
-import Home from './component/Home';
-// import Bloglist from './component/Bloglist';
-import Posts from './component/Posts';
-import Contact from './component/Contact';
-// import Bloglist from './component/Bloglist';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import BlogDetails from './component/BlogDetail';
+import Create from './pages/Create';
+import NotFound from './pages/NotFound';
 
 function App() {
     return (
@@ -13,9 +13,10 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                {/* <Route path="/about" element={<Bloglist />} /> */}
-                <Route path="/posts" element={<Posts />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/blog/:id" element={<BlogDetails />} />
+                <Route path="/create" element={<Create />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
     );
